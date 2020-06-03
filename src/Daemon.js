@@ -8,7 +8,7 @@ class Daemon {
 		this.network = network;
 	}
 
-	async request(method, params) {
+	async request(method, params, verb = 'POST', path = '/json_rpc') {
 
 		return new Promise((resolve, reject) => {
 
@@ -28,8 +28,8 @@ class Daemon {
 			const options = {
 				hostname: this.address,
 				port: this.port,
-				path: '/json_rpc',
-				method: 'POST',
+				path: path,
+				method: verb,
 				headers: {
 					'Content-Type': 'application/json',
 					'Content-Length': data.length
@@ -157,32 +157,34 @@ class Daemon {
 	}
 
 	/**
-
+		The method “getheight” returns the different heights of the blockchain. It is called without parameters.
+		Returns the currently synced height and topoheight of the chain
 	 */
 	getheight() {
-		return this.request('getheight').then(data => {
+		return this.request(null, null, 'get', '/getheight').then(data => {
+			return data
+		})
+	}
+	/**
+		The method “gettransactions” returns the transaction data for a list of transaction IDs in hex and JSON format.
+		Returns the specified transactions from either the blockchain or mempool
+	 */
+	gettransactions(params) {
+		return this.request(null, params, 'get', '/gettransactions').then(data => {
 			return data
 		})
 	}
 
 	// TODO DEBUG
-
-	gettransactions() {
-		return this.request('gettransactions').then(data => {
+	sendrawtransaction(params) {
+		return this.request(null, params, 'get', '/sendrawtransaction').then(data => {
 			return data
 		})
 	}
 
 	// TODO DEBUG
-	sendrawtransaction() {
-		return this.request('sendrawtransaction').then(data => {
-			return data
-		})
-	}
-
-	// TODO DEBUG
-	is_key_image_spent() {
-		return this.request('is_key_image_spent').then(data => {
+	is_key_image_spent(params) {
+		return this.request(null, params, 'get', '/is_key_image_spent').then(data => {
 			return data
 		})
 	}
