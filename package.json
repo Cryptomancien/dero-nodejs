@@ -1,0 +1,16 @@
+{
+  "name": "dero-nodejs",
+  "version": "1.0.0",
+  "description": "Dero RPC for Nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.0.1"
+  },
+  "dependencies": {}
+}
