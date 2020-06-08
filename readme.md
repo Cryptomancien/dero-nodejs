@@ -72,3 +72,32 @@ Response:
 }
 */
 ```
+##### getblocktemplate
+```js
+d.getblocktemplate({
+    wallet_address: 'dERojUsrUxg7t3BujwkWUj4DYACZNNByEL9vVbykjigkS6HmSxFfL9zeVwXU7uW3qnbGkrDwNoqgQFhBJH5KwjLN8YCyd33XKM',
+    reserve_size: 10
+}).then(data => {
+    console.log(data)
+})
+
+/*
+Response
+{
+  id: '1',
+  jsonrpc: '2.0',
+  result: {
+    blocktemplate_blob: '010186a6f9f6059bfc24cd000000000000000000000000000000000000000000000000000000000000000002fb8d0101ffbf8d01010002a8de526e19161b65220d3c36dc01b7c108bd66b3289e86697ee192552af1572821017d5155288aed82a3fb1d57d2bb6c851f
+a7c4d4fa9a5230c16315ff6b69f86100000000000000000000000000000000000000000000000000000000000000000000016836dd528cb6b5c0cccc8380c5c77ec1238eabb510468bc2afc99b8e6583bf3900',
+    blockhashing_blob: '01010653de5e0053fd0fe0391f810f0ae501a7be7f30f0f879c59a4b51b267fb6f2b61724348f79bfc24cd000000000000000000000000000000000000000000000000000000000000000000',
+    expected_reward: 0,
+    difficulty: 1,
+    height: 18111,
+    prev_hash: '6836dd528cb6b5c0cccc8380c5c77ec1238eabb510468bc2afc99b8e6583bf39',
+    reserved_offset: 43,
+    epoch: 1591628562,
+    status: 'OK'
+  }
+}
+*/
+```
