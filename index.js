@@ -1,9 +1,11 @@
 const Daemon = require('./src/Daemon')
 const Wallet = require('./src/Wallet')
 
-var w = new Wallet
+var d = new Daemon
 
-w.getheight().then(data => console.log(data))
+d.getblockcount().then(data => {
+    console.log(data)
+})
 
 // exports.Daemon = require('./src/Daemon')
 
