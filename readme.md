@@ -101,3 +101,65 @@ a7c4d4fa9a5230c16315ff6b69f86100000000000000000000000000000000000000000000000000
 }
 */
 ```
+##### getlastblockheader
+```js
+d.getlastblockheader().then(data => console.log(data))
+/*
+Response:
+{
+  id: '1',
+  jsonrpc: '2.0',
+  result: {
+    block_header: {
+      depth: 0,
+      difficulty: '1',
+      hash: '9a1beb190a514e7228cb61fe83f3812b9db5054aa48935a2a07c7179ba4caf69',
+      height: 21927,
+      topoheight: 21927,
+      major_version: 1,
+      minor_version: 1,
+      nonce: 1873444292,
+      orphan_status: false,
+      syncblock: false,
+      txcount: 0,
+      reward: 30084946041699,
+      tips: [Array],
+      timestamp: 1530080646
+    },
+    status: 'OK'
+  }
+}
+*/
+```
+##### getblockheaderbyhash
+```js 
+d.getblockheaderbyhash({
+    hash: '63678e7807cefa25b718c11cfbaf0567d4373cadb3de3265d8014046274bdcdf'
+}).then(data => console.log(data))
+/*
+Response:
+{
+  id: '1',
+  jsonrpc: '2.0',
+  result: {
+    block_header: {
+      depth: 705,
+      difficulty: '1',
+      hash: '63678e7807cefa25b718c11cfbaf0567d4373cadb3de3265d8014046274bdcdf',
+      height: 24201,
+      topoheight: 24201,
+      major_version: 1,
+      minor_version: 1,
+      nonce: 4103597245,
+      orphan_status: false,
+      syncblock: true,
+      txcount: 0,
+      reward: 29954744314228,
+      tips: [Array],
+      timestamp: 1530080874
+    },
+    status: 'OK'
+  }
+}
+*/
+```
