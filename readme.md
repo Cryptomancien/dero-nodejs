@@ -22,5 +22,16 @@ const daemon = new Daemon('127.0.0.1', '20206')
 daemon.getblockcount().then(data => {
     console.log(data)
 })
+/*
+Response:
+{ 
+    id: '1', 
+    jsonrpc: '2.0', 
+    result: { 
+        count: 3057, 
+        status: 'OK' 
+    } 
+}
+*/
 ```
 
