@@ -3,7 +3,7 @@ const Wallet = require('./src/Wallet')
 
 var d = new Daemon
 
-d.getblockcount().then(data => {
+d.get_info().then(data => {
     console.log(data)
 })
 
