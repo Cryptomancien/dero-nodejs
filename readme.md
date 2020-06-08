@@ -18,7 +18,6 @@ const daemon = new Daemon('127.0.0.1', '20206')
 #### Methods
 
 ##### getblockcount
-
 ```js
 daemon.getblockcount().then(data => {
     console.log(data)
@@ -36,7 +35,6 @@ Response:
 */
 ```
 ##### get_info
-
 ```js
 daemon.get_info().then(data => {
     console.log(data)
@@ -80,9 +78,8 @@ d.getblocktemplate({
 }).then(data => {
     console.log(data)
 })
-
 /*
-Response
+Response:
 {
   id: '1',
   jsonrpc: '2.0',
@@ -277,4 +274,23 @@ d.gettxpool().then(data => console.log(data))
 Response:
 { id: '1', jsonrpc: '2.0', result: { status: 'OK' } }
 */
+```
+
+##### getheight
+```js
+d.getheight().then(data => console.log(data))
+/*
+Response:
+{ height: 42200, stableheight: 42192, topoheight: 42200, status: 'OK' }
+*/
+```
+
+##### gettransactions
+```js
+d.gettransactions({
+    txs_hashes: [
+        'db408453b56de5e9973ce4b0fd46edd6b0460437602f84e2bd7861c2a0ca4468',
+        '0c237ebf3daaab36acde2cfbbad31e5d5435a114d691abeaf2b407d3c03560ac'
+    ]
+}).then(data => console.log(data))
 ```
