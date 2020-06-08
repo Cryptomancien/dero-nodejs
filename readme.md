@@ -1,5 +1,9 @@
 # Dero Nodejs 
 
+Module to use the Dero daemon RPC
+
+<a href="https://git.dero.io/gfox/DeroProject_Documentation/src/branch/master/DEV-1.md">More info</a> 
+
 ## Installation
 
 ``
