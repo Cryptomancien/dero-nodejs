@@ -135,8 +135,9 @@ class Daemon {
 	}
 
 	/**
-	 * Returns the blockheader from given topoheight
-	 * @param {Object} - { topoheight: 320000 }
+	 *Returns the blockheader from given topoheight
+	 * @param {Object} params - { topoheight: 320000 }
+	 * @returns {Promise<unknown>}
 	 */
 	getblockheaderbytopoheight(params) {
 		return this.request('getblockheaderbytopoheight', params).then(data => {
@@ -146,7 +147,7 @@ class Daemon {
 
 	/**
 	 * Returns the blockheader from given height
-	 * @param {String} params- { height: 320000 }
+	 * @param {Object} params- { height: 320000 }
 	 * @returns {Promise<unknown>}
 	 */
 	getblockheaderbyheight(params) {
