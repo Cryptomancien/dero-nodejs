@@ -2,7 +2,10 @@ const http = require('http');
 
 class Daemon {
 
-	constructor(address = '127.0.0.1', port = '30309', network = 'mainnet') {
+	/**
+	 *	port 20206 for mainnet 30309 for testnet
+	 */
+	constructor(address = '127.0.0.1', port = '20206', network = 'mainnet') {
 		this.address = address;
 		this.port = port;
 		this.network = network;
