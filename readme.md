@@ -230,3 +230,51 @@ Response:
 
 */
 ```
+
+##### getblock
+```js 
+d.getblock({
+    hash: '9477c7e449ecb2c0ae7ae983bdbd58db5c8e62a20a0a12251ad33b439759510f'
+}).then(data => console.log(data))
+/*
+Response:
+{
+  id: '1',
+  jsonrpc: '2.0',
+  result: {
+    blob: '0101ecd3ccd9054df71a2f0000000000000000000000000000000000000000000000000000000000000000029c5e01ffe05d01d2bafaa1a9fc0602aff30c4232281d2ac1c574314419773194f6fcc6898d88e90c186be34520522b2b01c9ce6b58fd2815851f8a80d8fd2fab304e7535
+effb5bfcd1b8e634b4765d874d0208000000000380e083000000000000000000000000000000000000000000000000000000000000000000016adf072a5cb255c324feb9d628e9742d17bf94a3855da70f881791884eaff9a000',
+    json: '{"major_version":1,"minor_version":1,"timestamp":1530079724,"nonce":790296397,"miner_tx":{"version":2,"unlock_time":12060,"Vin":[{"Height":12000}],"Vout":[{"Amount":30659963690322,"Target":{"Key":"aff30c4232281d2ac1c57431441
+9773194f6fcc6898d88e90c186be34520522b"}}],"Extra":"AcnOa1j9KBWFH4qA2P0vqzBOdTXv+1v80bjmNLR2XYdNAggAAAAAA4Dggw==","RctSignature":{"Message":"0000000000000000000000000000000000000000000000000000000000000000","MixRing":null,"ECdhInfo":nul
+l,"OutPk":null,"Txid":"0000000000000000000000000000000000000000000000000000000000000000","BulletSigs":null,"MlsagSigs":null}},"tips":["6adf072a5cb255c324feb9d628e9742d17bf94a3855da70f881791884eaff9a0"],"tx_hashes":null}',
+    block_header: {
+      depth: 23586,
+      difficulty: '1',
+      hash: '9477c7e449ecb2c0ae7ae983bdbd58db5c8e62a20a0a12251ad33b439759510f',
+      height: 12000,
+      topoheight: 12000,
+      major_version: 1,
+      minor_version: 1,
+      nonce: 790296397,
+      orphan_status: false,
+      syncblock: true,
+      txcount: 0,
+      reward: 30659963690322,
+      tips: [Array],
+      timestamp: 1530079724
+    },
+    status: 'OK'
+  }
+}
+
+*/
+```
+
+##### gettxpool
+```js
+d.gettxpool().then(data => console.log(data))
+/*
+Response:
+{ id: '1', jsonrpc: '2.0', result: { status: 'OK' } }
+*/
+```
