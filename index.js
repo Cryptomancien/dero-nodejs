@@ -14,7 +14,7 @@ const wallet = new Wallet('127.0.0.1', '30309')
 //wallet.getbalance().then(data => console.log(data))
 //wallet.getheight().then(data => console.log(data))
 
-wallet.transfer(1, 'dEToXZ99LNGgQxmhdi4whWT7nUinyj23Y6kr6hdughGQTKyq8fMbwYt1142TsJziKzdsTgscWyW1t3yPf7sbd8zg2puBKBmNxX', 6, MakePaymentId()).then(data => console.log(data))
+//wallet.transfer(1, 'dEToXZ99LNGgQxmhdi4whWT7nUinyj23Y6kr6hdughGQTKyq8fMbwYt1142TsJziKzdsTgscWyW1t3yPf7sbd8zg2puBKBmNxX', 6, MakePaymentId()).then(data => console.log(data))
 
 
 //wallet.get_transfer_by_txid('eddc10d9c10a70a6a2538327bfa8b57f8faa29113d9ed55ae04306fcb695b6e4').then(data => console.log(data))
@@ -26,5 +26,8 @@ wallet.transfer(1, 'dEToXZ99LNGgQxmhdi4whWT7nUinyj23Y6kr6hdughGQTKyq8fMbwYt1142T
 
 //const d = new Daemon('127.0.0.1', '30306')
 
+wallet.make_integrated_address('533f1a4dc4f0a15095d384fafab07187222b13c9f18c02e6a289e36a5d6a5049').then(data => console.log(data))
+
 exports.Daemon = require('./src/Daemon')
 exports.Wallet = require('./src/Wallet')
+
