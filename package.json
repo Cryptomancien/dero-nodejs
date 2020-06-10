@@ -2,6 +2,10 @@
   "name": "dero-nodejs",
   "version": "1.0.0",
   "description": "Dero RPC for Nodejs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/netwarp/dero-nodejs"
+  },
   "main": "index.js",
   "scripts": {
     "test": "jest"
