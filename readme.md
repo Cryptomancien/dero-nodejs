@@ -76,10 +76,7 @@ Response:
 ```
 ##### getblocktemplate
 ```js
-d.getblocktemplate({
-    wallet_address: 'dERojUsrUxg7t3BujwkWUj4DYACZNNByEL9vVbykjigkS6HmSxFfL9zeVwXU7uW3qnbGkrDwNoqgQFhBJH5KwjLN8YCyd33XKM',
-    reserve_size: 10
-}).then(data => {
+d.getblocktemplate('dERojUsrUxg7t3BujwkWUj4DYACZNNByEL9vVbykjigkS6HmSxFfL9zeVwXU7uW3qnbGkrDwNoqgQFhBJH5KwjLN8YCyd33XKM', 10).then(data => {
     console.log(data)
 })
 /*
@@ -134,9 +131,7 @@ Response:
 ```
 ##### getblockheaderbyhash
 ```js 
-d.getblockheaderbyhash({
-    hash: '63678e7807cefa25b718c11cfbaf0567d4373cadb3de3265d8014046274bdcdf'
-}).then(data => console.log(data))
+d.getblockheaderbyhash('63678e7807cefa25b718c11cfbaf0567d4373cadb3de3265d8014046274bdcdf').then(data => console.log(data))
 /*
 Response:
 {
@@ -167,9 +162,7 @@ Response:
 
 ##### getblockheaderbytopoheight
 ```js
-d.getblockheaderbytopoheight({
-    topoheight: 12000
-}).then(data => console.log(data))
+d.getblockheaderbytopoheight(12000).then(data => console.log(data))
 /*
 Responsive:
 {
@@ -200,9 +193,7 @@ Responsive:
 
 ##### getblockheaderbyheight
 ```js
-d.getblockheaderbyheight({
-    height: 12000
-}).then(data => console.log(data))
+d.getblockheaderbyheight(12000).then(data => console.log(data))
 /*
 Response:
 {
@@ -234,9 +225,7 @@ Response:
 
 ##### getblock
 ```js 
-d.getblock({
-    hash: '9477c7e449ecb2c0ae7ae983bdbd58db5c8e62a20a0a12251ad33b439759510f'
-}).then(data => console.log(data))
+d.getblock('9477c7e449ecb2c0ae7ae983bdbd58db5c8e62a20a0a12251ad33b439759510f').then(data => console.log(data))
 /*
 Response:
 {
