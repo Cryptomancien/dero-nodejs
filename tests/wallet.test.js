@@ -7,6 +7,12 @@ const Wallet = require('../src/Wallet')
  */
 const wallet = new Wallet('127.0.0.1', '30309')
 
+let config = {
+    transfer: {
+        amount: 1,
+        address: 'dEToXZ99LNGgQxmhdi4whWT7nUinyj23Y6kr6hdughGQTKyq8fMbwYt1142TsJziKzdsTgscWyW1t3yPf7sbd8zg2puBKBmNxX'
+    }
+}
 
 describe('Wallet Tests', () => {
 
@@ -26,5 +32,9 @@ describe('Wallet Tests', () => {
         wallet.getheight().then(data => {
             expect(data).toHaveProperty('result')
         })
+    })
+
+    test('transfer', () => {
+        wallet.transfer(config.transfer.amount, config.transfer.address)
     })
 })

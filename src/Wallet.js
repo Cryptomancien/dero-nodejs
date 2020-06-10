@@ -1,15 +1,15 @@
-const http = require('http');
+const http = require('http')
 
 class Wallet {
 	/**
 	 *
 	 * @param {String} address
 	 * @param {String} port
-	 * Remember: port 20209 for mainnet 30306 for testnet
+	 * Remember: port 20209 for mainnet 30309 for testnet
 	 */
 	constructor(address = '127.0.0.1', port = '20209') {
-		this.address = address;
-		this.port = port;
+		this.address = address
+		this.port = port
 	}
 
 	async request(method, params, verb = 'POST', path = '/json_rpc') {
@@ -20,14 +20,14 @@ class Wallet {
 				"jsonrpc": "2.0",
 				"id": "1",
 				"method": method
-			};
+			}
 
 			if (params) {
-				data.params = params;
+				data.params = params
 				// console.log(data)
 			}
 
-			data = JSON.stringify(data);
+			data = JSON.stringify(data)
 
 			const options = {
 				hostname: this.address,
@@ -38,30 +38,30 @@ class Wallet {
 					'Content-Type': 'application/json',
 					'Content-Length': data.length
 				}
-			};
+			}
 
-			let rawData = '';
+			let rawData = ''
 
 			const req = http.request(options, (res) => {
 			
 				res.on('data', (d) => {
 					//process.stdout.write(d)
-					rawData += d;
-				});
+					rawData += d
+				})
 
 				res.on('end', () => {
 					try	{
-						const parsedData = JSON.parse(rawData);
-						resolve(parsedData);
+						const parsedData = JSON.parse(rawData)
+						resolve(parsedData)
 					} 
 					catch (error) {
 						reject(error)
 					}
-				});
-			});
+				})
+			})
 
-			req.write(data);
-			req.end();
+			req.write(data)
+			req.end()
 		})
 	}
 
@@ -83,13 +83,13 @@ class Wallet {
 		return this.request('getbalance').then(data => {
 
 
-			let balance = data.result.balance.toLocaleString();
-			let unlocked_balance = data.result.unlocked_balance.toLocaleString();
+			let balance = data.result.balance.toLocaleString()
+			let unlocked_balance = data.result.unlocked_balance.toLocaleString()
 
 			data.formatNumber = {
 				balance,
 				unlocked_balance
-			};
+			}
 
 			return data
 		})
@@ -154,8 +154,20 @@ class Wallet {
 		})
 	}
 
-	make_integrated_address() {
+	/**
+	 *
+	 * @param {String} payment_id
+	 * @returns {Promise<unknown>}
+	 */
+	make_integrated_address(payment_id) {
 
+		const params = {
+			payment_id
+		}
+
+		return this.request('query_key', params).then(data => {
+			return data
+		})
 	}
 
 	/**
@@ -212,4 +224,4 @@ class Wallet {
 	}
 }
 
-module.exports = Wallet;
+module.exports = Wallet
