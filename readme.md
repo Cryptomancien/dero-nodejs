@@ -19,7 +19,9 @@ In a second terminal launch the wallet with --rpc-server
 ### Daemon
 
 ```js
-import {Daemon} from 'dero-nodejs'
+const dero_nodejs = require('dero-nodejs')
+const Daemon = dero_nodejs.Daemon
+
 const daemon = new Daemon('127.0.0.1', '20206')
 ```
 
