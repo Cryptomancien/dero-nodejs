@@ -12,6 +12,10 @@ npm install dero-nodejs
 
 ## Usage
 
+In a first terminal launch the daemon
+
+In a second terminal launch the wallet with --rpc-server
+
 ### Daemon
 
 ```js
@@ -286,4 +290,52 @@ d.gettransactions({
         '0c237ebf3daaab36acde2cfbbad31e5d5435a114d691abeaf2b407d3c03560ac'
     ]
 }).then(data => console.log(data))
+```
+
+- - - 
+
+### Wallet
+
+#### Methods
+
+##### getaddress
+```js
+wallet.getaddress().then(data => console.log(data))
+/*
+Response:
+{
+  id: '1',
+  jsonrpc: '2.0',
+  result: {
+    address: 'dETom4Mu5yJ7t3BujwkWUj4DYACZNNByEL9vVbykjigkS6HmSxFfL9zeVwXU7uW3qnbGkrDwNoqgQFhBJH5KwjLN8YCyeRQGsq'
+  }
+}
+
+*/
+```
+
+##### getbalance
+```js 
+wallet.getbalance().then(data => console.log(data))
+/*
+Response
+{
+  id: '1',
+  jsonrpc: '2.0',
+  result: { balance: 288855164418785, unlocked_balance: 148105867196468 },
+  formatNumber: {
+    balance: '288 855 164 418 785',
+    unlocked_balance: '148 105 867 196 468'
+  }
+}
+*/
+```
+
+##### getheight
+```js
+wallet.getheight().then(data => console.log(data))
+/*
+Response
+{ id: '1', jsonrpc: '2.0', result: { height: 124 } }
+*/
 ```
