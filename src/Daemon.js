@@ -1,15 +1,15 @@
-const http = require('http');
+const http = require('http')
 
 class Daemon {
 
 	/**
 	 * @param {string} address
 	 * @param {String} port
-	 * Remember: port 20206 for mainnet 30309 for testnet
+	 * Remember: port 20206 for mainnet 30306 for testnet
 	 */
 	constructor(address = '127.0.0.1', port = '20206') {
-		this.address = address;
-		this.port = port;
+		this.address = address
+		this.port = port
 	}
 
 	/**
@@ -28,10 +28,10 @@ class Daemon {
 				"jsonrpc": "2.0",
 				"id": "1",
 				"method": method
-			};
+			}
 
 			if (params) {
-				data.params = params;
+				data.params = params
 				// console.log(data)
 			}
 
@@ -48,28 +48,28 @@ class Daemon {
 				}
 			}
 
-			let rawData = '';
+			let rawData = ''
 
 			const req = http.request(options, (res) => {
 			
 				res.on('data', (d) => {
 					//process.stdout.write(d)
-					rawData += d;
-				});
+					rawData += d
+				})
 
 				res.on('end', () => {
 					try	{
-						const parsedData = JSON.parse(rawData);
-						resolve(parsedData);
+						const parsedData = JSON.parse(rawData)
+						resolve(parsedData)
 					} 
 					catch (error) {
 						reject(error)
 					}
-				});
-			});
+				})
+			})
 
-			req.write(data);
-			req.end();
+			req.write(data)
+			req.end()
 		})
 	}
 
@@ -93,12 +93,21 @@ class Daemon {
 		})
 	}
 
+
 	/**
+	 *
 	 *  Return a block template (used for mining a block)
-	 * @param {Object} params - {wallet_address: <your dero address>, reserve_size: 10}
+	 * @param wallet_address
+	 * @param reserve_size
 	 * @returns {Promise<unknown>}
 	 */
-	getblocktemplate(params) {
+	getblocktemplate(wallet_address, reserve_size = 10) {
+
+		const params = {
+			wallet_address,
+			reserve_size
+		}
+
 		return this.request('getblocktemplate', params).then(data => {
 			return data
 		})
@@ -125,10 +134,15 @@ class Daemon {
 
 	/**
 	 * Returns a blockheader from its hash
-	 * @param {String} params - {hash: <your hash>}
+	 * @param {String} hash
 	 * @returns {Promise<unknown>}
 	 */
-	getblockheaderbyhash(params) {
+	getblockheaderbyhash(hash) {
+
+		const params = {
+			hash
+		}
+
 		return this.request('getblockheaderbyhash', params).then(data => {
 			return data
 		})
@@ -136,10 +150,15 @@ class Daemon {
 
 	/**
 	 *Returns the blockheader from given topoheight
-	 * @param {Object} params - { topoheight: 320000 }
+	 * @param {Number} topoheight - { topoheight: 320000 }
 	 * @returns {Promise<unknown>}
 	 */
-	getblockheaderbytopoheight(params) {
+	getblockheaderbytopoheight(topoheight = 32000) {
+
+		const params = {
+			topoheight
+		}
+
 		return this.request('getblockheaderbytopoheight', params).then(data => {
 			return data
 		})
@@ -147,10 +166,15 @@ class Daemon {
 
 	/**
 	 * Returns the blockheader from given height
-	 * @param {Object} params- { height: 320000 }
+	 * @param {Number} height-
 	 * @returns {Promise<unknown>}
 	 */
-	getblockheaderbyheight(params) {
+	getblockheaderbyheight(height = 32000) {
+
+		const params = {
+			height
+		}
+
 		return this.request('getblockheaderbyheight', params).then(data => {
 			return data
 		})
@@ -158,9 +182,14 @@ class Daemon {
 
 	/**
 	 * Returns a block from its given hash
-	 * @param {Object} - { hash: <your hash> }
+	 * @param {String} - hash
 	 */
-	getblock(params) {
+	getblock(hash) {
+
+		const params = {
+			hash
+		}
+
 		return this.request('getblock', params).then(data => {
 			return data
 		})
