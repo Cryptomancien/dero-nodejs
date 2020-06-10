@@ -136,10 +136,7 @@ class Wallet {
 		})
 	}
 
-	transfer_split() {
-
-	}
-
+	// TODO do this feature
 	get_bulk_payments() {
 
 	}
@@ -165,7 +162,7 @@ class Wallet {
 			payment_id
 		}
 
-		return this.request('query_key', params).then(data => {
+		return this.request('make_integrated_address', params).then(data => {
 			return data
 		})
 	}
