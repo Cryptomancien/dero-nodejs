@@ -341,3 +341,139 @@ Response
 { id: '1', jsonrpc: '2.0', result: { height: 124 } }
 */
 ```
+
+##### transfer
+```js
+wallet.transfer(2, 'dEToXZ99LNGgQxmhdi4whWT7nUinyj23Y6kr6hdughGQTKyq8fMbwYt1142TsJziKzdsTgscWyW1t3yPf7sbd8zg2puBKBmNxX', 6, '')
+/*
+Response
+{
+  id: '1',
+  jsonrpc: '2.0',
+  result: {
+    fee: 4500000000,
+    tx_key: '09df33aaa532af88ee08c68b6cad5cd904344eebd6ea4cc6cd0c9e5bfff18d0b',
+    tx_hash: '5891d08f48c7e700d5f4f988d855a4f78e160c30f998dac5122d917b41b6663a',
+    tx_blob: '02000102000612022733021ddb0d18be85d042615df810db499ffa5c82b1629d83d2ff2c5b4a5b1d93193ec6020002921add59cd099d954901c5c2b66dd452c4d345981877878a5d3142f5a07bc69500021312b971a7b57eb4e7c8520085e7a69a2db158981743372505bf737b601
+400f8440189b7e9032a3d31d315a3d80b9e50af0fc7947e8dbf85e9ef97069584cc5eb3f402210013b2e1aa5559468c31cd4ba686a1fb8ad08b7b38216ddc5cb7716f5fba8b75f2'
+  }
+}
+
+*/
+```
+
+##### make_integrated_address
+```js
+wallet.make_integrated_address('533f1a4dc4f0a15095d384fafab07187222b13c9f18c02e6a289e36a5d6a5049').then(data => console.log(data))
+/*
+Responsive
+{
+  id: '1',
+  jsonrpc: '2.0',
+  result: {
+    integrated_address: 'dETinEd8Ah67t3BujwkWUj4DYACZNNByEL9vVbykjigkS6HmSxFfL9zeVwXU7uW3qnbGkrDwNoqgQFhBJH5KwjLNaGjs3HatWKMhFQzqM5NZXfWWiv3PNZKBNQRHYm2A4FKi52fv5veZBk',
+    payment_id: '533f1a4dc4f0a15095d384fafab07187222b13c9f18c02e6a289e36a5d6a5049'
+  }
+}
+*/
+```
+##### get_transfer_by_txid
+```js
+wallet.get_transfer_by_txid('eddc10d9c10a70a6a2538327bfa8b57f8faa29113d9ed55ae04306fcb695b6e4').then(data => console.log(data))
+/*
+Response
+{
+  id: '1',
+  jsonrpc: '2.0',
+  result: {
+    payments: {
+      tx_hash: 'eddc10d9c10a70a6a2538327bfa8b57f8faa29113d9ed55ae04306fcb695b6e4',
+      block_height: 25,
+      amount: 2345617349393,
+      unlock_time: 0,
+      destinations: null,
+      type: 'in'
+    }
+  }
+}
+*/
+```
+
+##### split_integrated_address
+```js
+wallet.split_integrated_address('dETinEd8Ah67t3BujwkWUj4DYACZNNByEL9vVbykjigkS6HmSxFfL9zeVwXU7uW3qnbGkrDwNoqgQFhBJH5KwjLNaGjs3HatWKMhFQzqM5NZXfWWiv3PNZKBNQRHYm2A4FKi52fv5veZBk').then(data => console.log(data))
+/*
+Response
+{
+  id: '1',
+  jsonrpc: '2.0',
+  result: {
+    standard_address: 'dETom4Mu5yJ7t3BujwkWUj4DYACZNNByEL9vVbykjigkS6HmSxFfL9zeVwXU7uW3qnbGkrDwNoqgQFhBJH5KwjLN8YCyeRQGsq',
+    payment_id: '533f1a4dc4f0a15095d384fafab07187222b13c9f18c02e6a289e36a5d6a5049'
+  }
+}
+*/
+```
+
+##### get_transfer_by_txid
+```js
+wallet.get_transfer_by_txid('eddc10d9c10a70a6a2538327bfa8b57f8faa29113d9ed55ae04306fcb695b6e4').then(data => console.log(data))
+/*
+Response
+{
+  id: '1',
+  jsonrpc: '2.0',
+  result: {
+    payments: {
+      tx_hash: 'eddc10d9c10a70a6a2538327bfa8b57f8faa29113d9ed55ae04306fcb695b6e4',
+      block_height: 25,
+      amount: 2345617349393,
+      unlock_time: 0,
+      destinations: null,
+      type: 'in'
+    }
+  }
+}
+*/
+```
+
+##### get_transfers
+```js
+wallet.get_transfers().then(data => console.log(data))
+/*
+Response
+{
+  id: '1',
+  jsonrpc: '2.0',
+  result: {
+    in: [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      ... 113 more items
+    ],
+    out: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object]
+    ]
+  }
+}
+*/
+```
