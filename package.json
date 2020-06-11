@@ -1,6 +1,6 @@
 {
   "name": "dero-nodejs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Dero RPC for Nodejs",
   "repository": {
     "type": "git",
